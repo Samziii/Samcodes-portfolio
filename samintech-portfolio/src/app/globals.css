@@ -1,0 +1,786 @@
+
+:root {
+  --bg: #0b0d12;
+  --panel: #121620;
+  --line: #252b38;
+  --text: #f3f5f9;
+  --muted: #a5adbd;
+  --accent: #b7f36b;
+  --accent2: #8ad9d1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 80% 0%, #1a2530 0, transparent 34%),
+    var(--bg);
+  color: var(--text);
+  font: 16px/1.75 Inter, ui-sans-serif, system-ui, -apple-system,
+    Segoe UI, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  width: min(1040px, calc(100% - 40px));
+  margin: auto;
+}
+
+/* Navigation */
+.nav {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ffffff12;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+}
+
+.monogram {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  background: var(--accent);
+  color: #10150b;
+  font-weight: 900;
+}
+
+.navlinks {
+  display: flex;
+  gap: 24px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.navlinks a:hover,
+.textlink:hover {
+  color: var(--accent);
+}
+
+/* Location badge */
+.glass-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 15px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(210, 225, 235, 0.08);
+  color: rgba(225, 234, 245, 0.76);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 20px rgba(200, 220, 230, 0.06);
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+.glass-location span:first-child {
+  font-size: 20px;
+  line-height: 1;
+  color: rgba(225, 234, 245, 0.72);
+}
+
+/* Hero */
+.hero {
+  padding: 86px 0 66px;
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  align-items: center;
+  gap: 40px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 7vw, 72px);
+  line-height: 1.08;
+  letter-spacing: -0.065em;
+  margin: 17px 0 22px;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.hero p {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-weight: 750;
+  font-size: 14px;
+  border: 1px solid var(--line);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #11170b;
+  border-color: var(--accent);
+}
+
+.btn.primary:hover {
+  box-shadow: 0 0 24px #b7f36b35;
+}
+
+/* Profile */
+.profilecard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  transform: none;
+}
+
+.avatar {
+  width: 220px;
+  height: 220px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: block;
+  object-fit: cover;
+  object-position: center 28%;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 0 8px #b7f36b18;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 16px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* General sections */
+section {
+  padding: 40px 0 50px;
+  border-top: 1px solid #ffffff12;
+}
+
+.sectionhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 26px;
+  gap: 20px;
+}
+
+.kicker {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sectionhead h2 {
+  font-size: 32px;
+  letter-spacing: -0.045em;
+  margin: 5px 0 0;
+}
+
+.hint {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Cards and grids */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, #141923, #10131a);
+  border-radius: 17px;
+  padding: 23px;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.card:hover {
+  border-color: #b7f36b45;
+  transform: translateY(-2px);
+}
+
+.cardtop {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: start;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.45;
+  letter-spacing: -0.025em;
+}
+
+.meta {
+  color: var(--accent2);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 5px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 14px 0 0;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 17px;
+}
+
+.tag {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #d4dae4;
+  border: 1px solid #343b49;
+  background: #171d28;
+  padding: 5px 10px;
+  border-radius: 999px;
+}
+
+.symbol {
+  color: var(--accent);
+  font-size: 22px;
+}
+
+/* Experience timeline */
+.timeline {
+  display: grid;
+  gap: 14px;
+}
+
+.role {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.role .date {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: right;
+}
+
+.role h3 {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.role .org {
+  color: var(--accent2);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.role p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 10px 0 0;
+}
+
+/* Skills */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.skillbox {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  background: #11151d;
+}
+
+.skillbox h3 {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.skillbox p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Education */
+.edu {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.edu h3 {
+  font-size: 17px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.edu p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 5px 0;
+}
+
+.edu time {
+  font-size: 14px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Existing contact component */
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border: 1px solid var(--line);
+  background: linear-gradient(120deg, #192126, #11151c);
+  padding: 28px;
+  border-radius: 18px;
+}
+
+.contact h2 {
+  font-size: 28px;
+  line-height: 1.4;
+  letter-spacing: -0.04em;
+  margin: 4px 0;
+}
+
+.contact p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Footer */
+.footer {
+  padding: 28px 0 40px;
+  color: #7e8798;
+  font-size: 14px;
+  line-height: 1.7;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.textlink {
+  color: var(--accent);
+}
+
+.award {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--accent);
+  border: 1px solid #526b39;
+  border-radius: 999px;
+  padding: 5px 10px;
+  white-space: nowrap;
+}
+
+/* =========================================
+   CONTACT BACKGROUND — LIME ORBITAL GRAPHIC
+   ========================================= */
+
+#contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-top: 1px solid #b7f36b25;
+  background:
+    radial-gradient(ellipse at 8% 15%, #b7f36b18, transparent 30%),
+    radial-gradient(ellipse at 92% 85%, #b7f36b16, transparent 28%);
+}
+
+/* Decorative stars and dotted patterns */
+#contact::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 12px 0;
+  pointer-events: none;
+  opacity: 0.8;
+  background-image:
+    radial-gradient(circle, #b7f36b 1.5px, transparent 2px),
+    radial-gradient(circle, #8ad9d1 2px, transparent 3px);
+  background-size: 37px 37px, 113px 113px;
+  background-position: 20px 20px, calc(100% - 60px) 70px;
+  mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    transparent 24%,
+    transparent 76%,
+    #000 100%
+  );
+}
+
+/* Large orbital curves */
+#contact::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 580px;
+  height: 280px;
+  top: 35px;
+  right: -100px;
+  pointer-events: none;
+  border: 1px solid #b7f36b35;
+  border-radius: 50%;
+  transform: rotate(-28deg);
+  box-shadow:
+    0 0 0 34px #b7f36b08,
+    0 0 0 70px #8ad9d10a,
+    inset 0 0 45px #b7f36b08;
+}
+
+/* Keep section content above its background graphics */
+#contact > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Contact panel styling */
+#contact .connect-playground,
+#contact .contact {
+  position: relative;
+  overflow: hidden;
+  border-color: #b7f36b45;
+  background:
+    radial-gradient(ellipse at 100% 0%, #b7f36b12, transparent 45%),
+    linear-gradient(135deg, #141a16, #0b0d12 75%);
+  box-shadow:
+    0 0 45px #b7f36b08,
+    inset 0 1px 0 #ffffff08;
+}
+
+/* Optional decorative paper plane.
+   Add <div className="contact-plane" aria-hidden="true"><span>➤</span></div>
+   inside #contact if you want this element visible. */
+.contact-plane {
+  position: absolute;
+  top: 28px;
+  right: 9%;
+  z-index: 0;
+  color: var(--accent);
+  font-size: 48px;
+  transform: rotate(-25deg);
+  filter: drop-shadow(0 0 16px #b7f36b65);
+  animation: plane-float 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes plane-float {
+  0%, 100% {
+    transform: translateY(0) rotate(-25deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-18deg);
+  }
+}
+
+/* Hover glow */
+#contact .connect-primary,
+#contact .btn.primary {
+  box-shadow: 0 0 22px #b7f36b20;
+}
+
+#contact .connect-primary:hover,
+#contact .btn.primary:hover {
+  box-shadow: 0 0 30px #b7f36b45;
+}
+
+/* Responsive layout */
+@media (max-width: 720px) {
+  .navlinks {
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 58px 0 45px;
+  }
+
+  .profilecard {
+    max-width: 220px;
+    transform: none;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sectionhead {
+    align-items: start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .contact {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .card p,
+  .role p {
+    font-size: 16px;
+  }
+
+  #contact::after {
+    width: 380px;
+    height: 200px;
+    right: -170px;
+    top: 70px;
+  }
+
+  .contact-plane {
+    top: 12px;
+    right: 7%;
+    font-size: 32px;
+    opacity: 0.65;
+  }
+}
+
+@media (max-width: 440px) {
+  .wrap {
+    width: min(100% - 28px, 1040px);
+  }
+
+  .navlinks a:nth-child(2) {
+    display: none;
+  }
+
+  .skills {
+    grid-template-columns: 1fr;
+  }
+
+  .role {
+    grid-template-columns: 1fr;
+  }
+
+  .role .date {
+    text-align: left;
+  }
+
+  .edu {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+
+  .sectionhead h2 {
+    font-size: 29px;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 10vw, 52px);
+  }
+}
+
+/* Accessibility: respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   GLOBAL STARFIELD — LIME DARK PORTFOLIO
+   ======================================== */
+
+body {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 80% 0%, #1a2530 0, transparent 34%),
+    var(--bg);
+}
+
+/* Fixed star layer across the entire website */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.7;
+  background-image:
+    radial-gradient(circle, #b7f36b 1px, transparent 1.6px),
+    radial-gradient(circle, #8ad9d1 1px, transparent 1.7px),
+    radial-gradient(circle, #f3f5f9 0.8px, transparent 1.5px);
+  background-size:
+    97px 113px,
+    157px 149px,
+    211px 193px;
+  background-position:
+    13px 21px,
+    67px 43px,
+    101px 89px;
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 65%,
+    #0009 100%
+  );
+}
+
+/* Soft lime atmospheric glow */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.65;
+  background:
+    radial-gradient(
+      ellipse at 8% 18%,
+      #b7f36b0b,
+      transparent 32%
+    ),
+    radial-gradient(
+      ellipse at 92% 65%,
+      #8ad9d10a,
+      transparent 30%
+    );
+}
+
+/* Keep sections transparent so the starfield shows through */
+section {
+  background-color: transparent;
+}
+
+/* Keep cards readable over the stars */
+.card,
+.skillbox {
+  background: linear-gradient(
+    145deg,
+    rgba(20, 25, 35, 0.94),
+    rgba(16, 19, 26, 0.94)
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* Subtle lime glow on hover */
+.card:hover,
+.skillbox:hover {
+  border-color: #b7f36b55;
+}
+
+/* Preserve the contact section's stronger atmospheric glow */
+#contact {
+  background:
+    radial-gradient(
+      ellipse at 8% 15%,
+      #b7f36b18,
+      transparent 30%
+    ),
+    radial-gradient(
+      ellipse at 92% 85%,
+      #b7f36b16,
+      transparent 28%
+    );
+}
+
+/* Avoid unwanted visual effects for reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    scroll-behavior: auto;
+  }
+}
