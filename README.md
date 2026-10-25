@@ -16,7 +16,7 @@ This portfolio showcases my projects, technical skills, experience, certificatio
 
 ## 🌐 Live Portfolio
 
-- **Portfolio:** 
+- **Portfolio:** samcodess.in
 - **LinkedIn:** [Sampurna Datta](https://www.linkedin.com/in/sampurna-datta-31109331a/)
 - **GitHub:** [@Samziii](https://github.com/Samziii)
 - **Email:** [dattasam290@gmail.com](mailto:dattasam290@gmail.com)
