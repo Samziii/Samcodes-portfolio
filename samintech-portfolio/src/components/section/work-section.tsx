@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+
 import { useState } from "react";
 import {
   Accordion,
@@ -16,19 +17,24 @@ function LogoImage({ src, alt }: { src: string; alt: string }) {
 
   if (!src || imageError) {
     return (
-      <div className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border bg-muted flex-none" />
+      <div className="size-8 md:size-10 flex-none rounded-full border bg-muted p-1 shadow ring-2 ring-border" />
     );
   }
 
-  const shouldInvert = src.includes("stellar.png") || src.includes("midnight.png") || src.includes("builderbase.png") || src.includes("solidworks.png") || src.includes("freelance.svg");
+  const shouldInvert =
+    src.includes("stellar.png") ||
+    src.includes("midnight.png") ||
+    src.includes("builderbase.png") ||
+    src.includes("solidworks.png") ||
+    src.includes("freelance.svg");
 
   return (
     <img
       src={src}
       alt={alt}
       className={cn(
-        "size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border overflow-hidden object-contain flex-none",
-        shouldInvert && "dark:invert-0 invert"
+        "size-8 md:size-10 flex-none overflow-hidden rounded-full border object-contain p-1 shadow ring-2 ring-border",
+        shouldInvert && "invert dark:invert-0"
       )}
       loading="lazy"
       decoding="async"
@@ -39,51 +45,55 @@ function LogoImage({ src, alt }: { src: string; alt: string }) {
 
 export default function WorkSection() {
   return (
-    <Accordion type="single" collapsible className="w-full grid gap-6">
+    <Accordion type="single" collapsible className="grid w-full gap-6">
       {DATA.work.map((work) => (
-      <AccordionItem
+        <AccordionItem
           key={work.company}
           value={work.company}
-          className="w-full border-b-0 grid gap-2"
+          className="grid w-full gap-2 border-b-0"
         >
-          <AccordionTrigger className="hover:no-underline p-0 cursor-pointer transition-colors rounded-none group [&>svg]:hidden">
-            <div className="flex items-center gap-x-3 justify-between w-full text-left">
-              <div className="flex items-center gap-x-3 flex-1 min-w-0">
+          <AccordionTrigger className="group cursor-pointer rounded-none p-0 transition-colors hover:no-underline [&>svg]:hidden">
+            <div className="flex w-full items-center justify-between gap-x-3 text-left">
+              <div className="flex min-w-0 flex-1 items-center gap-x-3">
                 <LogoImage src={work.logoUrl} alt={work.company} />
-                <div className="flex-1 min-w-0 gap-0.5 flex flex-col">
-                  <h3 className="font-semibold leading-none flex items-center gap-2">
+
+                <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+                  <h3 className="flex items-center gap-2 font-semibold leading-none">
                     {work.company}
-                    <span className="relative inline-flex items-center w-3.5 h-3.5">
+
+                    <span className="relative inline-flex size-3.5 items-center">
                       <ChevronRight
                         className={cn(
-                          "absolute h-3.5 w-3.5 shrink-0 text-muted-foreground stroke-2 transition-all duration-300 ease-out",
+                          "absolute size-3.5 shrink-0 text-muted-foreground stroke-2 transition-all duration-300 ease-out",
                           "translate-x-0 opacity-0",
                           "group-hover:translate-x-1 group-hover:opacity-100",
-                          "group-data-[state=open]:opacity-0 group-data-[state=open]:translate-x-0"
+                          "group-data-[state=open]:translate-x-0 group-data-[state=open]:opacity-0"
                         )}
                       />
+
                       <ChevronDown
                         className={cn(
-                          "absolute h-3.5 w-3.5 shrink-0 text-muted-foreground stroke-2 transition-all duration-200",
-                          "opacity-0 rotate-0",
-                          "group-data-[state=open]:opacity-100 group-data-[state=open]:rotate-180"
+                          "absolute size-3.5 shrink-0 text-muted-foreground stroke-2 transition-all duration-200",
+                          "rotate-0 opacity-0",
+                          "group-data-[state=open]:rotate-180 group-data-[state=open]:opacity-100"
                         )}
                       />
                     </span>
                   </h3>
+
                   <div className="font-sans text-sm text-muted-foreground">
                     {work.title}
                   </div>
                 </div>
               </div>
-              <div className="flex items-center gap-1 text-xs tabular-nums text-muted-foreground text-right flex-none">
-                <span>
-                  {work.start === work.end ? work.start : `${work.start} - ${work.end}`}
-                </span>
+
+              <div className="flex flex-none items-center gap-1 text-right text-xs tabular-nums text-muted-foreground">
+                <span>{work.start} - {work.end}</span>
               </div>
             </div>
           </AccordionTrigger>
-          <AccordionContent className="p-0 ml-13 text-xs sm:text-sm text-muted-foreground">
+
+          <AccordionContent className="ml-13 p-0 text-xs text-muted-foreground sm:text-sm">
             {work.description}
           </AccordionContent>
         </AccordionItem>
